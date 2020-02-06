@@ -1,6 +1,6 @@
 // Layon Martins
 
-// Implementing a LindedList
+// Implementing a LindedList reference: https://www.geeksforgeeks.org/implementing-a-linked-list-in-java-using-class/
 
 import java.io.*;
 import java.util.Scanner;

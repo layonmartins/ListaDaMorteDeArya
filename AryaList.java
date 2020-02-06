@@ -5,6 +5,8 @@
  * @author Layon Martins Fonseca
  */
 
+ import java.util.Scanner;
+
 public class AryaList {
 
     // create a LinkedList class
@@ -25,9 +27,6 @@ public class AryaList {
         }
     }
 
-    AryaList(){
-
-    }
     // constructor
     AryaList(int[] numbers) {
         // create a head of the list
@@ -54,9 +53,40 @@ public class AryaList {
     }
 
     public static void main(final String[] args) {
-        System.out.println("Hello Arya");
-        int[] array = {1,2,3,4};
+        // System.out.println("####### The Arya's List of Death ######");
+        
+        // Get N (1 <= N <= 5 x 10e4), the number of anymies:
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int[] array = new int[N];
+        for(int i = 0; i < N; i++) {
+            array[i] = in.nextInt();
+        }
+
+        // create the initial list:
         AryaList aryaList = new AryaList(array);
+
+        // get Q, number of operations:
+        int Q = in.nextInt();
+        for(int i = 0; i < Q; i++) {
+            // get the type of operation
+            char operation = in.next().charAt(0);
+            // for each type do something
+            switch (operation) {
+                case 'I':
+                    //TODO call the insertion()
+                    break;
+                case 'R':
+                    //TODO call the remove()
+                    break;
+                case 'Q':
+                    //TODO call the between()
+                    break;
+                default:
+            }
+        }
+
+        //print for test
         print();
     }
 }
