@@ -12,6 +12,8 @@ public class AryaList {
     // create a LinkedList class
     // a head of the list
     static Node head;
+    // a tail of the list
+    static Node tail;
     // a static instance of the list
     static AryaList list;
 
@@ -27,7 +29,10 @@ public class AryaList {
         }
     }
 
-    // constructor
+    // constructor 1
+    AryaList () {}
+
+    // constructor 2
     AryaList(int[] numbers) {
         // create a head of the list
         Node node_head = new Node(numbers[0]);
@@ -38,6 +43,22 @@ public class AryaList {
             Node node = new Node(numbers[i]);
             cursor.next = node;
             cursor = node;
+        }
+        //set tail
+
+    }
+
+    // insert in tail
+    public static void insert(int data) {
+        //create a Node
+        Node newNode = new Node(data);
+        //if the list is empty
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
         }
     }
 
@@ -58,13 +79,9 @@ public class AryaList {
         // Get N (1 <= N <= 5 x 10e4), the number of anymies:
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
-        int[] array = new int[N];
         for(int i = 0; i < N; i++) {
-            array[i] = in.nextInt();
+            insert(in.nextInt()); // insert the initial nodes
         }
-
-        // create the initial list:
-        AryaList aryaList = new AryaList(array);
 
         // get Q, number of operations:
         int Q = in.nextInt();
