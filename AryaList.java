@@ -47,7 +47,7 @@ public class AryaList {
         //set tail
         tail = cursor;
 
-        print(); //to test
+        //print(); //to test
 
     }
 
@@ -83,16 +83,16 @@ public class AryaList {
             tail = newNode;
         }
 
-        print();
+        //print();
     }
 
-    // remove R e (1 <= e <= 109) remove the enemy 'e' of the list
+    // remove R e (1 <= e <= 10^9) remove the enemy 'e' of the list
     public static void remove(int e) {
 
         // if the 'e' is the head
         if (head.data == e) {
             head = head.next;
-            print(); //test
+            //print(); //test
             return;
         }
         // create the cursor starting in head
@@ -108,8 +108,28 @@ public class AryaList {
         // to remove just jump to next node
         cursor.next = cursor.next.next;
 
-        print(); //test
+        //print(); //test
     }
+
+    // distance Q a b  (1 <= a, b <= 10^9) determine the distance between the enimeis 'a' and 'b' excluing both.
+    // [1]->[2]->[3]->[4]
+    public static int distance(int a, int b) {
+        // create the counter and cursor
+        int count = 0;
+        Node cursor = head;
+        // find 'a'
+        while (cursor.data != a){
+            cursor = cursor.next;
+        }
+        // count util 'b'
+        cursor = cursor.next;
+        while (cursor.data != b){
+            count++;
+            cursor = cursor.next;
+        }
+        return count;
+    }
+
 
     // print list
     public static void print() {
@@ -133,23 +153,21 @@ public class AryaList {
         // To get inputs
         Scanner in = new Scanner(System.in);
 
-        /*
-        The insert is already tested:
         // Get N (1 <= N <= 5 x 10e4), the number of anymies:
         int N = in.nextInt();
         for(int i = 0; i < N; i++) {
             insert(in.nextInt()); // insert the initial nodes
         }
-        */
+        
 
         //Create the list to test
-        int[] array = {1,2,3,4};
-        AryaList aryaList = new AryaList(array);
+        //int[] array = {1,2,3,4};
+        //AryaList aryaList = new AryaList(array);
 
         
-        // get Q, number of operations:
-        int Q = in.nextInt();
-        for(int i = 0; i < Q; i++) {
+        // get O, number of operations:
+        int O = in.nextInt();
+        for(int i = 0; i < O; i++) {
             // get the type of operation
             char operation = in.next().charAt(0);
             // for each type do something
@@ -164,6 +182,8 @@ public class AryaList {
                     break;
                 case 'Q':
                     //TODO call the between()
+                    int distance = distance(in.nextInt(), in.nextInt());
+                    System.out.println(distance);
                     break;
                 default:
             }
